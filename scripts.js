@@ -2,7 +2,10 @@ const mamboGif = document.getElementById('mamboGif');
 const mamboCount = document.getElementById('mamboCount');
 const mamboSound = new Audio('assets/audio/manbo.mp3');
 const laughSound = new Audio('assets/audio/mambo-laugh-matikanetannhauser.mp3');
-const laughChance = 0.01;
+const prettyDerbySound = new Audio('assets/audio/matikanetannhauser-uma-musume-pretty-derby.mp3');
+const wowSound = new Audio('assets/audio/wow-matikane-tannhauser.mp3');
+const rareSounds = [laughSound, prettyDerbySound, wowSound];
+const rareChance = 0.00001;
 const STORAGE_KEY = 'mamboCount';
 let count = 0;
 
@@ -30,8 +33,8 @@ function clickMambo() {
 	} catch (_) {}
 	playSound(mamboSound);
 
-	if (Math.random() < laughChance) {
-		playSound(laughSound);
+	if (Math.random() < rareChance) {
+		playSound(rareSounds[Math.floor(Math.random() * rareSounds.length)]);
 	}
 }
 
