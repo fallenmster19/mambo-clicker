@@ -22,6 +22,8 @@ mamboCount.textContent = count;
 const BONUS_LIFESPAN = 10;
 const BONUS_SRC = 'assets/uma-musume-mambo.gif';
 const EXPLOSION_SRC = 'assets/explosion-deltarune.gif';
+// explosion-deltarune.gif tem 17 frames de 100ms = 1700ms totais
+const EXPLOSION_DURATION_MS = 1700;
 let bonusActive = false;
 
 function playSound(sound) {
@@ -52,7 +54,7 @@ function explodeBonusMambo(wrap, explosionImg) {
 	explosionImg.style.display = 'block';
 	// Reinicia o gif da explosão caso o browser tenha feito cache do frame final
 	explosionImg.src = EXPLOSION_SRC + '?t=' + Date.now();
-	setTimeout(removeBonusMambo, 700);
+	setTimeout(removeBonusMambo, EXPLOSION_DURATION_MS);
 }
 
 function spawnBonusMambo() {
